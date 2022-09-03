@@ -1,35 +1,28 @@
 "use strict";
 
-// // 1
-// fetch("https://jsonplaceholder.typicode.com/users/1")
-//   .then((response) => response.json())
-//   .then((result) => {
-//     localStorage.setItem("user", JSON.stringify(result));
-//   })
-//   .catch((error) => console.error(error));
+// 1
+const storedUser = localStorage.getItem("user");
 
-// const storedUser = localStorage.getItem("user");
-
-// if (storedUser) {
-//   console.log(JSON.parse(storedUser));
-// } else {
-//   fetch("https://jsonplaceholder.typicode.com/users/1")
-//     .then((response) => response.json())
-//     .then((result) => {
-//       localStorage.setItem("user", JSON.stringify(result));
-//     })
-//     .catch((error) => console.error(error));
-// }
-
-// 2
-function isValidDateFormat(str) {
-  const regexp = /^\d{4}\/\d{2}\/\d{2} \d{2}\:\d{2}$/;
-
-  return regexp.test(str);
+if (storedUser) {
+  console.log(JSON.parse(storedUser));
+} else {
+  fetch("https://jsonplaceholder.typicode.com/users/1")
+    .then((response) => response.json())
+    .then((result) => {
+      localStorage.setItem("user", JSON.stringify(result));
+    })
+    .catch((error) => console.error(error));
 }
 
-console.log(isValidDateFormat("2012/09/18 12:10")); // true
-console.log(isValidDateFormat("12.02.2022 12:10")); // false
+// // 2
+// function isValidDateFormat(str) {
+//   const regexp = /^\d{4}\/\d{2}\/\d{2} \d{2}\:\d{2}$/;
+
+//   return regexp.test(str);
+// }
+
+// console.log(isValidDateFormat("2012/09/18 12:10")); // true
+// console.log(isValidDateFormat("12.02.2022 12:10")); // false
 
 // // 3
 // function isAfter(firstDate, secondDate) {
